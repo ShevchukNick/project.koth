@@ -4,7 +4,7 @@ define("ROOT",dirname(__DIR__));
 define("WWW", ROOT . '/public');
 define("APP", ROOT . '/app');
 define("CORE", ROOT . '/vendor/koth');
-define("HELPERS", ROOT . '/vendor/helpers');
+define("HELPERS", ROOT . '/vendor/koth/helpers');
 define("CACHE", ROOT . '/tmp/cache');
 define("LOGS", ROOT . '/tmp/logs');
 define("CONFIG", ROOT . '/config');
