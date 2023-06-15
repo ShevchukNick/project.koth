@@ -1,7 +1,9 @@
 <?php
 namespace app\controllers;
 
-class MainController
+use koth\Controller;
+
+class MainController extends Controller
 {
     public function indexAction()
     {
