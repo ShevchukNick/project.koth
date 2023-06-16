@@ -23,6 +23,8 @@ class View
     // метод который отрисовывает страницу (подклчюает шаблон, вставоет в него вид, передает данные в него )
     public function render($data)
     {
+
+        // принимаеи данные, если это массив извлекаем в переменные которые будут соответствовать ключам этого масива
         if (is_array($data)) {
             extract($data);
         }
@@ -52,8 +54,17 @@ class View
             } else {
                 throw new \Exception("не найден шаблон {$layout_file}",500);
             }
-
-
         }
+    }
+
+    // вывод мета тегов
+    public function getMeta()
+    {
+        $out = '<title>' . h($this->meta['title']) . '</title>' . PHP_EOL;
+        $out .= '<meta name="description" content="' . h($this->meta['description']) . '">' . PHP_EOL;
+        $out .= '<meta name="keywords" content="' . h($this->meta['keywords']) . '">' . PHP_EOL;
+        return $out;
+
+
     }
 }
