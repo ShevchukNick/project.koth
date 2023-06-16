@@ -1,8 +1,11 @@
 <?php
 namespace app\controllers;
 
+use app\models\Main;
 use koth\Controller;
 
+
+/** @property Main $model */
 class MainController extends Controller
 {
     public function indexAction()
