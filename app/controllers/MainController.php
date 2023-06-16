@@ -3,6 +3,7 @@ namespace app\controllers;
 
 use app\models\Main;
 use koth\Controller;
+use RedBeanPHP\R;
 
 
 /** @property Main $model */
