@@ -40,6 +40,9 @@ abstract class Controller
     {
         //если вью не путсая строка то запишем ее, если пустая - возьмем вид по умолчанию, название вида совпадаеи с экшном
         $this->view = $this->view ?: $this->route['action'];
+
+        // создаем экз класса Вью === цепочка ткая - получаем данные в роутере - их в контролер - а потом их в вид
+        (new View($this->route,$this->layout,$this->view,$this->meta))->render($this->data);
     }
 
 

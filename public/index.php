@@ -9,8 +9,3 @@ require_once CONFIG . '/routes.php';
 
 
 new koth\App();
-
-debug(\koth\Router::getRoutes());
-
-
-var_dump(true===false);

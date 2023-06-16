@@ -48,7 +48,11 @@ class Router
             $controller = 'app\controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] . 'Controller';
             // теперь нужно пропверить вообще сущейтсвет или нет такой контроллер
             if (class_exists($controller)) {
-                $controllerObject = new $controller(self::$route); // это эксземпляр класса которые находятся в папке controllers
+
+                /** @var Controller $controllerObject */
+
+                // создаем экземляр котролера, передаем в конструктор self::$route и в базовом контро выполняем операии
+                $controllerObject = new $controller(self::$route);
 
                 $controllerObject->getModel();
 
@@ -57,6 +61,8 @@ class Router
                 //если у контролера есть вызываемый экшн , то его и вызыввем
                 if (method_exists($controllerObject,$action)) {
                     $controllerObject->$action();
+                    //получаем обьет клсса вью, здесь после экшна, потому что в нем можно переопределить вид
+                    $controllerObject->getView();
                 } else {
                     throw new \Exception("method {$controller}::{$action} not found",404);
                 }
