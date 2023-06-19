@@ -1,10 +1,18 @@
 <?php
 namespace app\controllers;
 
-class MainController
+use app\models\Main;
+use koth\Controller;
+use RedBeanPHP\R;
+
+
+/** @property Main $model */
+class MainController extends Controller
 {
     public function indexAction()
     {
-        echo 'main zone';
+        /** с помощью метода сетмета (баз контро) мы наполняем свойство meta, и когда мы создаем обьект вида (базовый контролер) в конструкторе мы передам эти мета данные */
+        $this->setMeta('Главная страница', "описание....", "ключевые слова...");
+
     }
 }
