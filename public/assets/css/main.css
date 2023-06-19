@@ -1,0 +1,260 @@
+@import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/*font-family: 'Roboto', sans-serif;*/
+
+
+:root {
+    --black: #171718;
+    --yellow: yellow ;
+    --orange: orange;
+
+    --dark-bg: var(--black);
+    --accent: var(--orange);
+
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*.wrapper {*/
+/*    min-height: 100%;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*main {*/
+/*    flex: 1 1 auto;*/
+/*}*/
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1200px;
+}
+
+
+/* ==============================  nav   ====================================  */
+
+.nav {
+    padding: 20px 0;
+    background-color: var(--dark-bg);
+    color: white;
+    border: 1px solid #26292D;
+}
+
+.nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: var(--accent);
+    font-size: 26px;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    row-gap: 10px;
+    margin-bottom: 0px;
+}
+
+.nav-list__link {
+    color: white;
+    transition: opacity 0.1s ease-in;
+}
+.nav-list__link:hover {
+    opacity: 0.8;
+    color: var(--accent);
+}
+
+.nav-list__link--active {
+    position: relative;
+}
+.nav-list__link--active::before {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--accent);
+}
+/* ==============================  header   ====================================  */
+
+header {
+    padding: 40px 0;
+    min-height: 695px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*background-image: url('../img/.png');*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: auto;*/
+    /*background-position: center;*/
+
+    background-color: var(--dark-bg);
+    color: white;
+    text-align: center;
+}
+.header__wrapper {
+    padding: 0 15px;
+    max-width: 660px;
+}
+.header__title{
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 700;
+}
+.header__title strong {
+    font-size: 50px;
+    color: var(--accent);
+}
+.header_text {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+.header_text strong {
+    color: var(--accent);
+}
+.btn {
+    display: inline-block;
+    height: 48px;
+    padding: 12px 28px;
+    border-radius: 5px;
+    background-color: var(--accent);
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 700;
+    transition: opacity 0.1s ease-in;
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    color:  var(--black);
+    opacity: 0.8;
+}
+.btn:active {
+    position: relative;
+    top:1px;
+}
+
+/* ==============================  main   ====================================  */
+
+.section {
+    padding: 70px 0;
+
+}
+.title-1 {
+    margin-bottom: 60px;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+}
+.tests {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
+}
+.test {
+    max-width: 370px;
+    background-color: white;
+    box-shadow: 0px 5px 35px rgba(0,0,0,0.25);
+}
+.test__image {
+    max-height: 300px ;
+    display: block;
+    margin: auto;
+
+}
+.test__title {
+    padding: 15px 20px 25px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ==============================  footer   ====================================  */
+footer {
+    margin-top: auto;
+    padding: 30px 0 30px;
+    background-color: var(--dark-bg);
+    color: white;
+}
+
+.foot-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    row-gap: 27px;
+}
+.foot-wrapper a img {
+    max-width: 40px;
+}
+.copyright {
+    font-size: 16px;
+}
+
+
+@media (max-width: 620px) {
+    .logo {
+        margin-left: 20%;
+    }
+    .search {
+        display: none;
+    }
+
+    header {
+        min-height: unset;
+    }
+    .header__title {
+        font-size: 20px;
+    }
+    .header__title strong {
+        font-size: 30px;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+    .title-1 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .tests {
+        padding-left: 0;
+    }
+
+    .test__title {
+        font-size: 22px;
+    }
+
+    footer {
+        padding: 20px 0 20px;
+    }
+    .foot-wrapper a img {
+        max-width: 30px;
+    }
+
+}
+

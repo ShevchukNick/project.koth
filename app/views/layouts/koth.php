@@ -3,10 +3,9 @@
 use koth\View;
 
 /** @var $this View */
-
 ?>
 <?php $this->getPart('parts/header') ?>
 
-<?= $this->content ?>
+<?php echo $this->content ?>
 
 <?php $this->getPart('parts/footer') ?>
