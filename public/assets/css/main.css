@@ -215,6 +215,26 @@ footer {
 }
 
 
+
+
+.var_test {
+    background-color: grey;
+    height: auto;
+    margin: 5em;
+}
+.name_test {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+}
+.form_test {
+    text-align: center;
+}
+
+
+
+
+
 @media (max-width: 620px) {
     .logo {
         margin-left: 20%;

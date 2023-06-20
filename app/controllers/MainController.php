@@ -2,7 +2,7 @@
 namespace app\controllers;
 
 use app\models\Main;
-
+use koth\Cache;
 
 
 /** @property Main $model */
@@ -14,5 +14,7 @@ class MainController extends AppController
 
         /** методом сыт опраовляю даныне в вид */
         $this->set(compact('tests'));
+
+        $this->setMeta("Главная страница",'descirption...','keywords....');
     }
 }

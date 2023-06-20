@@ -1,6 +1,6 @@
 <?php
 return [
-  'admin_email'=>'ssss',
-    'site_name'=>'koth',
-    'pagination'=>3,
+    'admin_email' => 'ssss',
+    'site_name' => 'Король истории',
+    'pagination' => 3,
 ];

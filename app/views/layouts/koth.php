@@ -4,7 +4,7 @@ use koth\View;
 
 /** @var $this View */
 ?>
-<?php $this->getPart('parts/header') ?>
+<?php $this->getPart('parts/nav') ?>
 
 <?php echo $this->content ?>
 
