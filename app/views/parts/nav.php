@@ -28,9 +28,9 @@ use koth\View;
                 King of the history
             </a>
             <ul class="nav-list">
-                <li class="nav-list__item"><a href="#" class="nav-list__link ">Тесты</a></li>
-                <li class="nav-list__item"><a href="#" class="nav-list__link">Таблица лидеров</a></li>
                 <li class="nav-list__item"><i class="search fa-solid fa-magnifying-glass"></i></li>
+                <li class="nav-list__item"><a href="/tests" class="nav-list__link ">Тесты</a></li>
+                <li class="nav-list__item"><a href="#" class="nav-list__link">Таблица лидеров</a></li>
                 <li class="nav-list__item"><a href="#" class="nav-list__link">Вход</a></li>
             </ul>
         </div>

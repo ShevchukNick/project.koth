@@ -15,6 +15,10 @@ Router::add('^admin/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)/?$',['admin_pre
 Router::add('^test/(?P<slug>[a-z0-9-]+)/?$',['controller'=>'Test','action'=>'view']);
 
 
+// это моя фантазия
+Router::add('^tests$',['controller'=>'Tests','action'=>'view']);
+
+
 
 // здесь мы описываем пустую строку - это главная страница, 2 аргумент - пара контроллер и экшн
 Router::add('^$',['controller'=>'Main','action'=>'index']);
