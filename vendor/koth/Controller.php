@@ -9,7 +9,7 @@ abstract class Controller
     // именно в массив дата и буду загружаться данные из модели
 
     public array $data =[]; //это массив с данными для вида (сюда можно положить данные методом сэт в любом контролере)
-    public array $meta=[]; // передача в шаблон метаданных страницы
+    public array $meta=['title'=>'','description'=>'','keywords'=>'']; // передача в шаблон метаданных страницы
     public false|string $layout=''; // в конфиге в инит шаблон определен
     public string $view=''; // через контролер мы можем переопределить вид, по умолчанию он соответсвует назва экшна
     public $model; // это обьект модели
@@ -59,5 +59,18 @@ abstract class Controller
             'description'=>$description,
             'keywords'=>$keywords,
         ];
+    }
+
+    public function isAjax()
+    {
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest';
+    }
+
+    public function loadView($view,$vars=[])
+    {
+        extract($vars);
+        require APP . "/views/{$prefix}{$this->route['controller']}/$view.php";
+        $prefix = str_replace('\\','/',$this->route['admin_prefix']);
+        die();
     }
 }
