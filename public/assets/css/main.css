@@ -231,6 +231,8 @@ footer {
 .question__name {
     font-weight: 700;
 }
+
+
 .li__item {
     border: 3px solid black;
     border-radius: 10px;
@@ -243,6 +245,12 @@ footer {
 }
 .li__item:hover {
     background-color: orange;
+}
+.li__item label {
+    margin: auto;
+}
+.li__item input {
+    display: none;
 }
 
 

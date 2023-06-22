@@ -17,7 +17,18 @@ class Test extends AppModel
         $test_data = R::getAll("SELECT q.question,q.parent_test, a.id, a.answer, a.parent_question
             FROM questions q LEFT JOIN answers a ON q.id=a.parent_question where q.parent_test=$test_id");
 
-        return $test_data;
+
+        //формируем новый массив где ключ это номер вопроса + варианты ответа
+        $data = array();
+        foreach ($test_data as $test_datum) {
+            if (!$test_datum) return false;
+            $data[$test_datum['parent_question']][0]=$test_datum['question'];
+            $data[$test_datum['parent_question']][$test_datum['id']]=$test_datum['answer'];
+        }
+
+        return $data;
+
+
 
     }
 
