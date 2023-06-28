@@ -73,4 +73,10 @@ abstract class Controller
         $prefix = str_replace('\\','/',$this->route['admin_prefix']);
         die();
     }
+    public function error_404($folder='error',$view=404,$response=404)
+    {
+        http_response_code($response);
+        $this->route['controller']=$folder;
+        $this->view=$view;
+    }
 }

@@ -25,13 +25,26 @@ use koth\View;
         <div class="nav-row">
             <a href="<?= base_url() ?>" class="logo">
                 <i class="fa-solid fa-crown"></i>
-                King of the history
+                king of the history
             </a>
             <ul class="nav-list">
-                <li class="nav-list__item"><i class="search fa-solid fa-magnifying-glass"></i></li>
+                <li class="nav-list__item">
+
+                    <form action="search">
+                        <div class="input-group" id="search">
+                            <input type="hidden" class="form-control me-2" placeholder="Искать на сайте..." name="s">
+                            <button class="searсh-btn " type="submit"><i class="search-btn fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </form>
+
+                </li>
                 <li class="nav-list__item"><a href="/tests" class="nav-list__link ">Тесты</a></li>
                 <li class="nav-list__item"><a href="#" class="nav-list__link">Таблица лидеров</a></li>
-                <li class="nav-list__item"><a href="#" class="nav-list__link">Вход</a></li>
+                <?php if (empty($_SESSION['user'])): ?>
+                    <li class="nav-list__item"><a href="#" class="nav-list__link">Вход</a></li>
+                <?php else: ?>
+                    <li class="nav-list__item"><a href="#" class="nav-list__link">Профиль</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

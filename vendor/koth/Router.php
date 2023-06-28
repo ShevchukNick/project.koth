@@ -70,7 +70,7 @@ class Router
                 throw new \Exception("Controller {$controller} not found",404);
             }
         } else {
-            throw new \Exception('page not found',404);
+            throw new \Exception('страница не найдена',404);
         }
     }
 
