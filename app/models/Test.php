@@ -25,11 +25,23 @@ class Test extends AppModel
             $data[$test_datum['parent_question']][0]=$test_datum['question'];
             $data[$test_datum['parent_question']][$test_datum['id']]=$test_datum['answer'];
         }
-
         return $data;
+    }
 
-
-
+    public function pagination($count_questions,$test_data) // метод для переключения между вопросами теста
+    {
+        $keys=array_keys($test_data);
+        $pagination='<div class="pagination">';
+        for ($i=1;$i<=$count_questions;$i++) {
+            $key=array_shift($keys);
+            if ($i==1) {
+                $pagination .='<a class="nav-active" href="#question-' . $key . '">' . $i . '</a>';
+            } else {
+                $pagination .='<a href="#question-' . $key . '">' . $i . '</a>';
+            }
+        }
+        $pagination .= '</div>';
+        return $pagination;
     }
 
 }

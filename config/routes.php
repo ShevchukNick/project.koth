@@ -11,12 +11,21 @@ Router::add('^admin/?$',['controller'=>'Main','action'=>'index','admin_prefix'=>
 // а это правило применятеся если после админ в урд что то есть
 Router::add('^admin/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)/?$',['admin_prefix'=>'admin']);
 
+
+
 //правило для теста (для того чтобы попасть на странциу выбранного теста)
 Router::add('^test/(?P<slug>[a-z0-9-]+)/?$',['controller'=>'Test','action'=>'view']);
 
 
+
+// это я учусь писать роуты -этот для переключния между вопрсоами теста
+//Router::add('^test/(?P<slug>[a-z0-9-]+)/(?P<#question>[0-9]+)/?$',['controller'=>'Test','action'=>'view']);
+
 // это моя фантазия
 Router::add('^tests$',['controller'=>'Tests','action'=>'view']);
+
+
+Router::add('^search/?$',['controller'=>'Search','action'=>'index']);
 
 
 
