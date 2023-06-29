@@ -34,9 +34,9 @@ use koth\View;
                 <li class="nav-list__item"><a href="tests" class="nav-list__link ">Тесты</a></li>
                 <li class="nav-list__item"><a href="leaderboard" class="nav-list__link">Таблица лидеров</a></li>
                 <?php if (empty($_SESSION['user'])): ?>
-                    <li class="nav-list__item"><a href="#" class="nav-list__link">Вход</a></li>
+                    <li class="nav-list__item"><a href="user/login" class="nav-list__link">Вход</a></li>
                 <?php else: ?>
-                    <li class="nav-list__item"><a href="#" class="nav-list__link">Профиль</a></li>
+                    <li class="nav-list__item"><a href="#" class="nav-list__link">профиль</a></li>
                 <?php endif; ?>
             </ul>
         </div>

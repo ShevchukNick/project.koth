@@ -17,4 +17,13 @@ abstract class Model
         // получим обьект подключения к бд
         Db::getInstance();
     }
+
+    public function load($data)
+    {
+        foreach ($this->attributes as $name=> $values) {
+            if (isset($data[$name])) {
+                $this->attributes[$name]=$data[$name]; // заполняем атрибуты по ключу найм, значениеми которые пришли
+            }
+        }
+    }
 }
