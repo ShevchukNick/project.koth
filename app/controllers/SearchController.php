@@ -9,6 +9,10 @@ class SearchController extends AppController
 {
     public function indexAction()
     {
+        $this->setMeta('Поиск по сайту');
+    }
+    public function viewAction()
+    {
         $s=get('s','s');
 
         $tests=$this->model->get_find_tests($s);
