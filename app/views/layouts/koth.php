@@ -10,7 +10,7 @@ use koth\View;
 <!--ошибки-->
 
 <div class="container">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="row d-flex justify-content-center align-items-center ">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
             <?php if (!empty($_SESSION['errors'])): ?>
                 <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">

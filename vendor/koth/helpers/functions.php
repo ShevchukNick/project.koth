@@ -68,3 +68,8 @@ function post($key,$type='s')
         return trim($$param);
     }
 }
+
+function get_field_value($name) // функиця для тоже чтобы подставлять в поля уже введеное юезром
+{
+    return isset($_SESSION['form-data'][$name]) ? h($_SESSION['form-data'][$name]) :'';
+}

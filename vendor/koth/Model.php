@@ -2,8 +2,12 @@
 
 namespace koth;
 
-// базовый класс модели
+use RedBeanPHP\R;
 use Valitron\Validator;
+
+
+// базовый класс модели
+
 
 abstract class Model
 {
@@ -64,5 +68,21 @@ abstract class Model
             $labels[$k]=$v;
         }
         return $labels;
+    }
+
+    public function save($table) :int|string
+    {
+        // создаем обьект (в терминологии Рэдбин - бин) табл это таблица куда будем сохранять что то
+        $tbl=R::dispense($table);
+//        $tbl->name = ''; // создаем свойства для данного обьекта тбл
+//        $tbl->email = ''; // но метод универсальный для созранения в таблицу всякого, поэтому будем перебирать массив атрибуты
+
+        foreach ($this->attributes as $name => $value) {
+            if ($value != '') { // если значение не пусто
+                $tbl->$name = $value; // иначе $tbl->name = 'фывывы', а в след итерации $tbl->email = 'ывывыв', ну и так далее
+            }
+        }
+        return R::store($tbl); // доавялем запись в бд
+
     }
 }
