@@ -10,17 +10,17 @@
                             <form method="post">
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3cg">Адрес электронной почты</label>
-                                    <input name="email" type="email" id="form3Example3cg" class="form-control form-control-lg"/>
+                                    <label class="form-label" for="email">Адрес электронной почты</label>
+                                    <input name="email" type="email" id="email" class="form-control form-control-lg"/>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example4cg">Пароль</label>
-                                    <input name="password" type="password" id="form3Example4cg" class="form-control form-control-lg"/>
+                                    <label class="form-label" for="password">Пароль</label>
+                                    <input name="password" type="password" id="password" class="form-control form-control-lg"/>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn ">Войти</button>
+                                    <button type="submit" class="btn">Войти</button>
                                 </div>
 
                                 <p class="text-center text-muted mt-4 mb-0">
@@ -36,4 +36,6 @@
         </div>
     </div>
 </section>
+
+<?php debug($_POST);
 

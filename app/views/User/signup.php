@@ -11,17 +11,17 @@
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="name">Имя</label>
-                                    <input name="name" type="text" id="name" class="form-control form-control-lg" value="<?= get_field_value('name') ?>" placeholder=""/>
+                                    <input name="name" type="text" id="name" class="form-control form-control-lg" value="<?= get_field_value('name') ?>" placeholder="" required/>
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="email">Адрес электронной почты</label>
-                                    <input name="email" type="email" id="email" class="form-control form-control-lg" value="<?= get_field_value('email') ?>" placeholder=""/>
+                                    <input name="email" type="email" id="email" class="form-control form-control-lg" value="<?= get_field_value('email') ?>" placeholder="" required/>
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="password">Пароль</label>
-                                    <input name="password" type="password" id="password" class="form-control form-control-lg" placeholder=""/>
+                                    <input name="password" type="password" id="password" class="form-control form-control-lg" placeholder="" required/>
                                     <p class="text-muted ">Минимум 6 символов</p>
                                 </div>
 

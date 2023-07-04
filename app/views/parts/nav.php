@@ -36,7 +36,28 @@ use koth\View;
                 <?php if (empty($_SESSION['user'])): ?>
                     <li class="nav-list__item"><a href="user/login" class="nav-list__link">Вход</a></li>
                 <?php else: ?>
-                    <li class="nav-list__item"><a href="#" class="nav-list__link">профиль</a></li>
+
+
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex align-items-center"><p class="m-0 me-2"><?= $_SESSION['user']['name'] ?></p>
+                                <img class="dropdown__img" src="<?= $_SESSION['user']['img'] ?>"></div>
+
+                        </button>
+                        <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item " href="user/cabinet">Профиль</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Настройки профиля</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="user/logout">Выход</a></li>
+                        </ul>
+                    </div>
+
                 <?php endif; ?>
             </ul>
         </div>

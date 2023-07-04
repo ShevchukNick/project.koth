@@ -332,6 +332,22 @@ footer {
 }
 
 
+/*=========================================03-07*/
+.dropdown__img {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+.dropdown-item:hover {
+    color: orange;
+    opacity: 0.8;
+    background-color: black;
+}
+
+
 
 
 @media (max-width: 620px) {

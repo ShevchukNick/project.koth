@@ -28,17 +28,82 @@ class UserController extends AppController
                 } else {
                     $_SESSION['errors'] = 'Ошибка при создании нового аккаунта';
                 }
-
             }
-            redirect(); // редирект чтобы не предалагаслсь повтроная отправка формы
+            redirect(base_url() . '/user/login'); // редирект чтобы не предалагаслсь повтроная отправка формы
         }
-
-
         $this->setMeta('Регистрация');
     }
 
     public function loginAction()
     {
+        // если уже автоизован то редирект на гланую страницу
+        if (User::checkAuth()) {
+            redirect(base_url());
+        }
+        if (!empty($_POST)) {
+            // если массив не пуст то нужно вызвать метод авторизации
+            if ($this->model->login()) {
+//                $_SESSION['success']='Успешная авторизация';
+                redirect(base_url() . '/user/cabinet'); // на в кабинет при упсезе
+            } else {
+                $_SESSION['errors']='Ошибка авториазции. Логин или пароль введены неверно';
+                redirect(); // на эту эе страницу
+            }
+        }
         $this->setMeta('Авторизация');
+    }
+
+    public function logoutAction()
+    {
+        if (User::checkAuth()) {
+           unset($_SESSION['user']);
+        }
+        redirect(base_url());
+    }
+
+    public function cabinetAction()
+    {
+        if (!User::checkAuth()) {
+            redirect(base_url() . '/user/login');
+        }
+
+
+        $this ->setMeta('Профиль');
+    }
+
+
+    public function credentialsAction()
+    {
+        // если уже автоизован то редирект на гланую страницу
+        if (!User::checkAuth()) {
+            redirect(base_url() . '/user/login');
+        }
+        if (!empty($_POST)) {
+            if (empty($_POST['password'])) {
+                unset($_POST['password']);
+            }
+            $data = $_POST;
+            $this->model->load($data);
+            if (!$this->model->validate($data)) {
+                $this->model->getErrors();
+            } else {
+                if (!empty($this->model->attributes['password'])) {
+                    $this->model->attributes['password']=password_hash($this->model->attributes['password'] , PASSWORD_DEFAULT);
+                }
+
+                if ($this->model->update('user',$_SESSION['user']['id'])) {
+                    $_SESSION['success'] = 'Данные учетной записи обновлены';
+                    foreach ($this->model->attributes as $k=>$v) {
+                        if (!empty($v) && $k != 'password') {
+                            $_SESSION['user'][$k]=$v;
+                        }
+                    }
+                } else {
+                    $_SESSION['errors'] = 'Ошибка при обновлении';
+                }
+            }
+            redirect(); // редирект чтобы не предалагаслсь повтроная отправка формы
+        }
+        $this->setMeta('Настройки профиля');
     }
 }
