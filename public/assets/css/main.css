@@ -40,6 +40,7 @@ html, body {
 /* ==============================  nav   ====================================  */
 
 .nav {
+    position: relative;
     padding: 20px 0;
     background-color: var(--dark-bg);
     color: white;
@@ -53,6 +54,7 @@ html, body {
     column-gap: 30px;
     row-gap: 20px;
     flex-wrap: wrap;
+    height: 48px;
 }
 
 .logo {
@@ -152,11 +154,24 @@ header {
     color:  var(--black);
     opacity: 0.8;
 }
-.btn:active {
-    position: relative;
-    top:1px;
-}
 
+
+/*======================================================search*/
+
+.nav-list__item a {
+    color: white;
+}
+.form-search{
+    margin: 10vh auto;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+}
+.form-control:focus {
+    color: black;
+    border-color: orange;
+    box-shadow: 0 0 0 .1rem rgba(238, 110, 115,.25);
+}
 /* ==============================  main   ====================================  */
 
 .section {
@@ -189,9 +204,10 @@ header {
 }
 .test__image {
     max-height: 300px ;
-    width: 268px;
+    width: 288px;
     display: block;
     margin: auto;
+    padding: 15px;
 
 }
 .test__title {
@@ -316,6 +332,21 @@ footer {
 }
 
 
+/*=========================================03-07*/
+.dropdown__img {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+.dropdown-item:hover {
+    color: orange;
+    opacity: 0.8;
+    background-color: black;
+}
+
 
 
 
@@ -364,12 +395,15 @@ footer {
     }
 
 }
-@media (max-width: 718px) {
+@media (max-width: 728px) {
     .nav-row {
         justify-content: center;
     }
     .nav-list {
         display: none;
     }
+    /*body,html {*/
+    /*    min-height: 50vh;*/
+    /*}*/
 }
 

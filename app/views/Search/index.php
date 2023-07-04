@@ -1,17 +1,13 @@
 <main class="section">
     <div class="container">
-        <h2 class="title-1">Результаты поиска:</h2>
 
-        <ul class="tests">
-            <?php foreach ($tests as $test): ?>
-                <li class="test">
-                    <a href="test/<?= $test['slug'] ?>">
-                        <img src="<?= PATH . $test['img'] ?>" alt="" class="test__image">
-                        <h3 class="test__title"><?= $test['test_name'] ?></h3>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <form class="form-search" action="search/view">
+            <div class="input-group" id="search">
+                <input type="text" class="form-control me-2" placeholder="Искать на сайте..." name="s">
+                <button class="btn s" type="submit"><i class="search-btn fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </form>
+
     </div>
 </main>
 

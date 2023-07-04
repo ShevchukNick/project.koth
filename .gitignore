@@ -1,5 +1,6 @@
 .idea
 vendor/composer
 vendor/gabordemooij
+vendor/vlucas
 tmp/logs
 tmp/cache

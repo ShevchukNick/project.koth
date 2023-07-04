@@ -58,7 +58,7 @@ function get($key,$type='i')
 function post($key,$type='s')
 {
     $param = $key;
-    $$param=$_GET[$param] ?? '';
+    $$param=$_POST[$param] ?? '';
     // $page = $POST['page'] ?? ''
     if ($type=='i') {
         return (int)$$param;
@@ -67,4 +67,9 @@ function post($key,$type='s')
     } else {
         return trim($$param);
     }
+}
+
+function get_field_value($name) // функиця для тоже чтобы подставлять в поля уже введеное юезром
+{
+    return isset($_SESSION['form-data'][$name]) ? h($_SESSION['form-data'][$name]) :'';
 }

@@ -53,11 +53,6 @@ $(function () {
     });
 
 
-    $('.search-btn').mouseover(function () {
-        $(".form-control").attr('type','text')
-    });
-
-
 
 });
 

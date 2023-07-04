@@ -25,7 +25,10 @@ Router::add('^test/(?P<slug>[a-z0-9-]+)/?$',['controller'=>'Test','action'=>'vie
 Router::add('^tests$',['controller'=>'Tests','action'=>'view']);
 
 
-Router::add('^search/?$',['controller'=>'Search','action'=>'index']);
+Router::add('^search$',['controller'=>'Search','action'=>'index']);
+Router::add('^search/view?$',['controller'=>'Search','action'=>'view']);
+
+Router::add('^leaderboard$',['controller'=>'Leaderboard','action'=>'index']);
 
 
 

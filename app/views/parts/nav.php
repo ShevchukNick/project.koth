@@ -29,21 +29,35 @@ use koth\View;
             </a>
             <ul class="nav-list">
                 <li class="nav-list__item">
-
-                    <form action="search">
-                        <div class="input-group" id="search">
-                            <input type="hidden" class="form-control me-2" placeholder="Искать на сайте..." name="s">
-                            <button class="searсh-btn " type="submit"><i class="search-btn fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-                    </form>
-
+                    <a href="search" class="open-search"><i class="fas fa-search"></i></a>
                 </li>
-                <li class="nav-list__item"><a href="/tests" class="nav-list__link ">Тесты</a></li>
-                <li class="nav-list__item"><a href="#" class="nav-list__link">Таблица лидеров</a></li>
+                <li class="nav-list__item"><a href="tests" class="nav-list__link ">Тесты</a></li>
+                <li class="nav-list__item"><a href="leaderboard" class="nav-list__link">Таблица лидеров</a></li>
                 <?php if (empty($_SESSION['user'])): ?>
-                    <li class="nav-list__item"><a href="#" class="nav-list__link">Вход</a></li>
+                    <li class="nav-list__item"><a href="user/login" class="nav-list__link">Вход</a></li>
                 <?php else: ?>
-                    <li class="nav-list__item"><a href="#" class="nav-list__link">Профиль</a></li>
+
+
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex align-items-center"><p class="m-0 me-2"><?= $_SESSION['user']['name'] ?></p>
+                                <img class="dropdown__img" src="<?= $_SESSION['user']['img'] ?>"></div>
+
+                        </button>
+                        <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item " href="user/cabinet">Профиль</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Настройки профиля</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="user/logout">Выход</a></li>
+                        </ul>
+                    </div>
+
                 <?php endif; ?>
             </ul>
         </div>
