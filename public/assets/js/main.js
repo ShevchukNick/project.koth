@@ -1,11 +1,3 @@
-// $('.start-test').on('click', function(){
-//     $(".test-data").css({
-//         "display": "contents"
-//     });
-//     $('.start-test').css({
-//         "display": "none"
-//     })
-// });
 $(function () {
     $('.test-data').find('div:first').show();
 
@@ -24,15 +16,17 @@ $(function () {
         return false;
     });
     $('#end-test').click(function () {
+        let slug = window.location.href;
         let test = +$('#test-id').text();
         let res = {'test': test};
+        console.log(res)
 
         $('.question').each(function () {
             let id = $(this).data('id');
             res[id] = $('input[name=question-' + id + ']:checked').val();
         });
         $.ajax({
-            url: "./index.php",
+            url: slug,
             type: "POST",
             data: res,
             success: function (res) {
@@ -43,14 +37,15 @@ $(function () {
             }
         });
     });
-    $('.start-test').on('click', function () {
-        $(".abra").css({
-            "display": "contents"
-        });
-        $('.start-test').css({
-            "display": "none"
-        });
-    });
+    // $('.start-test').on('click', function () {
+    //     $(".abra").css({
+    //         "display": "contents"
+    //     });
+    //     $('.start-test').css({
+    //         "display": "none"
+    //     });
+    // });
+
 
 
 

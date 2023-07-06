@@ -44,4 +44,20 @@ class Test extends AppModel
         return $pagination;
     }
 
+    public function get_correct_answers($test)
+    {
+        if (!$test) return false;
+        $correct_answers = R::getAll("SELECT q.id AS question_id, a.id AS asnwer_id
+            FROM questions q
+            LEFT JOIN answers a
+            ON q.id=a.parent_question where q.parent_test=$test AND a.correct_answer='1'");
+
+        $data = array();
+        foreach ($correct_answers as $test_datum) {
+            $data[$test_datum['question_id']]=$test_datum['asnwer_id'];
+        }
+        return $data;
+
+    }
+
 }
