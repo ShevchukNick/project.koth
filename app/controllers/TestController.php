@@ -32,13 +32,21 @@ class TestController extends AppController
         if (isset($_POST['test'])) {
             $test = (int) $_POST['test'];
             unset($_POST['test']);
+
             $result=$this->model->get_correct_answers($test); // массвив верных ответов
-//            print_r($_POST);
-//            print_r($result);
             if (!is_array($result)) exit('Ошибка');
+
             //данные теста
             $test_all_data = $this->model->get_test_data($test);
-            print_r($test_all_data);
+
+            // 1 - массив вопрос-ответ, 2 прпвитльные ответы, 3 ответы юзера
+            // массив с итогами тестирования
+            $test_all_data_result=$this->model->get_test_data_result($test_all_data,$result,$_POST);
+
+            // вывод результататов
+            echo $this->model->print_result($test_all_data_result);
+            echo "<br>";
+            echo "<a href='/tests'>К списку тестов</a>";
             die;
         }
 

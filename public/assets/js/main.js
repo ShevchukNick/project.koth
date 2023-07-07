@@ -29,8 +29,8 @@ $(function () {
             url: slug,
             type: "POST",
             data: res,
-            success: function (res) {
-                console.log(res);
+            success: function (html) {
+                $('.test-content').html(html);
             },
             error: function () {
                 alert('Ошибка');
