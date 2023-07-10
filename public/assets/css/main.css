@@ -327,11 +327,62 @@ footer {
     display: none;
 }
 
-.abra {
-    display: none;
+/*.abra {*/
+/*    display: none;*/
+/*}*/
+
+/*======================================================07.07==============*/
+.count-res {
+    font-size: 28px;
+    background-color: black;
+    color: white;
+    padding: 30px;
 }
 
+.test-data {
 
+}
+
+.question-res {
+    margin: 10px 0 10px 0;
+    padding: 5px;
+}
+
+.ok {
+    border: 1px solid green;
+    background: #DEF9CE;
+    color: #58715E;
+}
+.error {
+    background: #F6D5D4;
+    color: #7F5354;
+}
+
+.a {
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(59,119,181,.05);
+    padding: 8px 16px;
+    margin-top: 4px;
+    width: 320px;
+    font-weight: 500;
+    font-size: 16px;
+    color: grey;
+
+}
+.ok2 {
+    border-radius: 10px;
+
+    color: white;
+    font-size: 20px;
+    background: darkseagreen;
+}
+.error2 {
+    border-radius: 10px;
+    border: 2px solid #FF6372;
+    color: red;
+    font-size: 20px;
+}
 /*=========================================03-07*/
 .dropdown__img {
     border-radius: 50%;

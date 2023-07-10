@@ -5,20 +5,21 @@ use koth\View;
 /** @var $this View */
 
 ?>
+
 <div class="section">
     <div class="container ">
         <div class="row ">
-            <div class="col-md-12 text-center">
+            <div class="test-content col-md-12 text-center">
                 <h2 class="title-name-test">Тест на тему : <?= $test_name['test_name'] ?></h2>
 
                 <?php if (isset($test_data)): ?>
 
                     <?php if (!empty($test_data)): ?>
-                        <p>Правила прохождения теста: <br> не обновляй страницу <br> перелючаться между вопросами можно с помощью навигации в виде цифр <br> когда выберешь все вопролсы нажми на книпку закочить
-                            <br> вопросы ан которые нет ответа считаются отвечеными нерпаильно </p>
-                          <div class="mt-5">
-                            <button type="submit" class="btn btn-warning start-test">Начать тест</button>
-                          </div>
+                        <p>Правила прохождения теста: <br>- Не обновляй страницу <br>- Перелючаться между вопросами можно с помощью навигации в виде цифр <br>- Когда ответишь все вопросы нажми на кнопку "Узнать результаты"
+                            <br>- Вопросы на которые нет ответа считаются отвеченными неверно </p>
+<!--                          <div class="mt-5">-->
+<!--                            <button type="submit" class="btn btn-warning start-test">Начать тест</button>-->
+<!--                          </div>-->
 
                 <div class="abra">  <!-- 27.06 -->
 
@@ -62,7 +63,7 @@ use koth\View;
                             <?php endforeach; ?>
 
                             <div class="mt-4 ">
-                                <button type="submit" class="btn btn-warning end-test" id="end-test">закончить</button>
+                                <button type="submit" class="btn btn-warning end-test" id="end-test">Узнать результаты</button>
                             </div>
 
                         </div>

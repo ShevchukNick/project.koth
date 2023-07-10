@@ -14,7 +14,11 @@ Router::add('^admin/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)/?$',['admin_pre
 
 
 //правило для теста (для того чтобы попасть на странциу выбранного теста)
+Router::add('^test/add?$',['controller'=>'Test','action'=>'add']); //!!!!!!!!!!!!!!!!!!!10.07
+
+
 Router::add('^test/(?P<slug>[a-z0-9-]+)/?$',['controller'=>'Test','action'=>'view']);
+
 
 
 

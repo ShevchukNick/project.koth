@@ -50,7 +50,7 @@ use koth\View;
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Настройки профиля</a></li>
+                            <li><a class="dropdown-item" href="user/credentials">Настройки профиля</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

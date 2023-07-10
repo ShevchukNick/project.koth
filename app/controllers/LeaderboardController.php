@@ -9,7 +9,7 @@ class LeaderboardController extends AppController
 {
     public function indexAction()
     {
-        $users = $this->model->get_users();
+        $users = $this->model->get_users_score();
 
         $this->set(compact('users'));
 
