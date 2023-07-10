@@ -6,8 +6,10 @@ use RedBeanPHP\R;
 
 class Leaderboard extends AppModel
 {
-    public function get_users()
+    public function get_users_score()
     {
-        return $users=R::getAll("SELECT * from user");
+        return $users=R::getAll("SELECT user.name, userscore.score, SUM(userscore.score) as sum
+                                            from userscore  
+                                                join user on userscore.userid=user.id GROUP BY userscore.userid ORDER BY sum DESC ");
     }
 }

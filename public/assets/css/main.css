@@ -333,9 +333,10 @@ footer {
 
 /*======================================================07.07==============*/
 .count-res {
-    font-size: 24px;
+    font-size: 28px;
     background-color: black;
     color: white;
+    padding: 30px;
 }
 
 .test-data {
@@ -343,18 +344,18 @@ footer {
 }
 
 .question-res {
-    margin: 0 0 10px 0;
+    margin: 10px 0 10px 0;
     padding: 5px;
 }
 
 .ok {
-    /*border: 1px solid green;*/
-    /*background: #DEF9CE;*/
-    /*color: #58715E;*/
+    border: 1px solid green;
+    background: #DEF9CE;
+    color: #58715E;
 }
 .error {
-    /*background: #F6D5D4;*/
-    /*color: #7F5354;*/
+    background: #F6D5D4;
+    color: #7F5354;
 }
 
 .a {
@@ -366,13 +367,15 @@ footer {
     width: 320px;
     font-weight: 500;
     font-size: 16px;
+    color: grey;
 
 }
 .ok2 {
     border-radius: 10px;
-    border: 2px solid greenyellow;
-    color: green;
+
+    color: white;
     font-size: 20px;
+    background: darkseagreen;
 }
 .error2 {
     border-radius: 10px;

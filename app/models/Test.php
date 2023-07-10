@@ -91,6 +91,7 @@ class Test extends AppModel
         return $test_all_data;
     }
 
+
     // вывод результататов
     public function print_result($test_all_data_result)
     {
@@ -104,6 +105,7 @@ class Test extends AppModel
             if (isset($item['incorrect_answer'])) $incorrect_answer_count++;
         }
         $correct_answer_count = $all_count - $incorrect_answer_count;
+
 
         $print_res = '<div class="test-data">' ;
             $print_res .= '<div class="count-res">';
@@ -152,8 +154,21 @@ class Test extends AppModel
 
         $print_res .= '</div>';
 
+        $_SESSION['count_correct_answer']=$correct_answer_count;
 
         return $print_res;
     }
+
+
+    public static function add_score($data)
+    {
+
+            $user_score = R::dispense('userscore');
+            $user_score->userid = $data['user_id'];
+            $user_score->score=$data['count_correct_answer'];
+            $id_transaction = R::store($user_score);
+
+    }
+
 
 }

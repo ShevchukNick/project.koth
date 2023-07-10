@@ -28,7 +28,6 @@ class TestController extends AppController
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
         if (isset($_POST['test'])) {
             $test = (int) $_POST['test'];
             unset($_POST['test']);
@@ -43,16 +42,31 @@ class TestController extends AppController
             // массив с итогами тестирования
             $test_all_data_result=$this->model->get_test_data_result($test_all_data,$result,$_POST);
 
+
             // вывод результататов
             echo $this->model->print_result($test_all_data_result);
             echo "<br>";
-            echo "<a href='/tests'>К списку тестов</a>";
+            if (!empty($_SESSION['user'])) {
+                echo '<a href="/test/add"><button type="button" class="btn btn-warning">Зарегистрировать результат</button></a>';
+            }
+            echo "<br>";
+            echo "<br>";
+            echo '<a href="/tests"><button type="button" class="btn btn-warning">К списку тестов</button></a>';
             die;
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         $this->set(compact('test_name','test_data','count_question','pagination'));
+    }
+
+    public function addAction()
+    {
+        $data['user_id'] = $_SESSION['user']['id'];
+        $data['count_correct_answer'] = $_SESSION['count_correct_answer'];
+        Test::add_score($data);
+
+//        debug($_SESSION);
     }
 
 }

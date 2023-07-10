@@ -12,7 +12,7 @@ use koth\View;
                 <thead>
                 <tr>
                     <th scope="col">Имя</th>
-                    <th scope="col">Баллы</th>
+                    <th scope="col">Счёт</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -20,7 +20,7 @@ use koth\View;
 
                     <tr>
                         <td><?= $user['name']; ?></td>
-                        <td>???</td>
+                        <td><?= $user['sum']; ?></td>
                     </tr>
                 <?php endforeach; ?>
 
