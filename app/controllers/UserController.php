@@ -19,6 +19,7 @@ class UserController extends AppController
             if (!$this->model->validate($data) || !$this->model->checkUnique()) {
                 $this->model->getErrors(); // метод гетеророс запишем ощибки валидации в сессию (они будут показаны в виде(шаблон
                 $_SESSION['form-data']=$data; // данные формы введеные юзером(чтоб юзер не вводил еще раз) юзаются в виде
+                redirect(base_url() . '/user/signup');
             } else {
                 // пароль записываем в атрибуты в хешированном виде, потом с помощью метода сейв это все запишется в бд
                 $this->model->attributes['password']=password_hash($this->model->attributes['password'] , PASSWORD_DEFAULT);
@@ -27,6 +28,7 @@ class UserController extends AppController
                     $_SESSION['success'] = 'Учетная запись была успешно создана';
                 } else {
                     $_SESSION['errors'] = 'Ошибка при создании нового аккаунта';
+
                 }
             }
             redirect(base_url() . '/user/login'); // редирект чтобы не предалагаслсь повтроная отправка формы
@@ -67,7 +69,10 @@ class UserController extends AppController
             redirect(base_url() . '/user/login');
         }
 
-
+        $user_score = $this->model->get_user_score($_SESSION['user']['id']);
+//        debug($user_score);
+//        die();
+        $this->set(compact('user_score'));
         $this ->setMeta('Профиль');
     }
 
@@ -104,6 +109,44 @@ class UserController extends AppController
             }
             redirect(); // редирект чтобы не предалагаслсь повтроная отправка формы
         }
+
         $this->setMeta('Настройки профиля');
     }
+
+
+    public function passedAction()
+    {
+
+        if (!User::checkAuth()) {
+            redirect(base_url() . '/user/login');
+        }
+
+        $tests = $this->model->get_passed_tests();
+
+
+        $this->set(compact('tests'));
+
+        $this->setMeta('пройденные тесты');
+    }
+
+    public function avatarAction()
+    {
+        if (!User::checkAuth()) {
+            redirect(base_url() . '/user/login');
+        }
+        $data= $_POST;
+
+        if (isset($data['set_avatar'])) {
+            $avatar = $_FILES['img'];
+            if ($this->model->avartar_security($avatar)) {
+                $this->model->loadava($avatar);
+                $_SESSION['success'] = 'Аватар обновлен';
+
+            } else {
+                $_SESSION['errors'] = 'Ошибка при обновлении аватара';
+            }
+        }
+        $this->setMeta('Обновление аватара');
+    }
+
 }

@@ -37,5 +37,4 @@
     </div>
 </section>
 
-<?php debug($_POST);
 

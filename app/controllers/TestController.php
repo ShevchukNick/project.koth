@@ -12,6 +12,7 @@ class TestController extends AppController
     {
         $test_name= $this->model->get_name_test($this->route['slug']);
 
+
         if (!$test_name) {
 //            throw new \Exception('test not === found',404);
             $this->error_404();
@@ -21,6 +22,8 @@ class TestController extends AppController
 
 
         $test_data=$this->model->get_test_data($test_name['id']);
+
+        $_SESSION['t_id']=$test_name['id'];
 
         $count_question = count($test_data);
 
@@ -64,9 +67,14 @@ class TestController extends AppController
     {
         $data['user_id'] = $_SESSION['user']['id'];
         $data['count_correct_answer'] = $_SESSION['count_correct_answer'];
+        $data['t_id']=$_SESSION['t_id'];
         Test::add_score($data);
 
-//        debug($_SESSION);
+
+//        Test::add_passed_test($data);
+
     }
+
+
 
 }

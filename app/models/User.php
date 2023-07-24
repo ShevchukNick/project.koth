@@ -9,7 +9,8 @@ class User extends AppModel
     public array $attributes = [
         "email" => '',
         "password" => '',
-        "name" => ''
+        "name" => '',
+        'img'=>'',
     ]; // смотри базовую модель ,там есть метод лоад который циклом идет по этим атрибумам и записывеи только нужное(это безоп даные
 
     public array $rules = [
@@ -17,6 +18,9 @@ class User extends AppModel
         'email' => ['email'],
         'lengthMin' => [
             ['password', 6]
+        ],
+        'lengthMax' => [
+            ['name', 12]
         ],
         'optional'=>['email','password'],
     ]; // массив правил валилации ->в базовой модели с ними рабоатет метол валидейт -> if все верно то валиадция пройдена
@@ -73,4 +77,48 @@ class User extends AppModel
         return false;
     }
 
+    public function get_passed_tests()
+    {
+//        return R::getAll("SELECT  FROM passedtest WHERE status=1");
+        return R::getAll("SELECT t.test_name, t.img, t.slug FROM tests as t 
+                                    JOIN passedtest as pt
+                                    on t.id = pt.testid WHERE pt.status=1");
+    }
+
+    public function get_user_score($user_id)
+    {
+        return $user_score = R::getAll("SELECT user.name, userscore.score, SUM(userscore.score) as sum
+                                            from userscore  
+                                                join user on userscore.userid=user.id where $user_id=userscore.userid  GROUP BY userscore.userid ");
+
+    }
+
+    public function avartar_security($avatar)
+    {
+        $name = $avatar['name'];
+        $type = $avatar['type'];
+        $size = $avatar['size'];
+        $blacklist = [".php",".js",".html"];
+        foreach ($blacklist as $item) {
+            if (preg_match("/$item\$/i",$name)) return false;
+        }
+        if (($type != "image/png") && ($type != "image/jpg") &&($type != "image/jpeg")) return false;
+        if ($size > 5 *1024 *1024) return false;
+        return true;
+
+    }
+    public function loadava($avatar)
+    {
+        $type = $avatar['type'];
+        $name = md5(microtime()) . '.' .substr($type,strlen("image/"));
+        $dir = "uploads/images/avatars/";
+        $uploadfile = $dir . $name;
+        $_SESSION['user']['img']=$uploadfile;
+        if (move_uploaded_file($avatar['tmp_name'],$uploadfile)) {
+            $user = R::findOne('user','id=?',[$_SESSION['user']['id']]);
+            $user ->img=$uploadfile;
+            R::store($user);
+        }
+        return true;
+    }
 }
