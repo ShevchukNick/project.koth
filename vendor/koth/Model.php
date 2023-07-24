@@ -95,4 +95,5 @@ abstract class Model
         }
         return R::store($tbl);
     }
+
 }

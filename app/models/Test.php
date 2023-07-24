@@ -162,13 +162,21 @@ class Test extends AppModel
 
     public static function add_score($data)
     {
-
             $user_score = R::dispense('userscore');
             $user_score->userid = $data['user_id'];
+            $user_score->testid = $data['t_id'];
             $user_score->score=$data['count_correct_answer'];
             $id_transaction = R::store($user_score);
 
     }
+//    public static function add_passed_test($data)
+//    {
+//            $pass_test = R::dispense('passedtest');
+//            $pass_test->userid = $data['user_id'];
+//            $pass_test->testid = $data['t_id'];
+//            $pass_test->status = 1;
+//            $id_transaction = R::store($pass_test);
+//    }
 
 
 }
