@@ -8,22 +8,31 @@
 
 ### Логика следующая:
 - юзер попадает на главную страницу с большим банером призывающим вступить в игру и выбрать тест, а также секцией с популярными тестами
-  ![](https://ibb.co/NsQHsLM)
+  
+  ![text](https://ibb.co/NsQHsLM)
 - юзер может перейти в меню "Тесты" где видит список всех доступных тестов
-  ![](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-02-07.png)
+  
+  ![text](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-02-07.png)
 - в навигационном меню есть поиск по сайту
-  ![](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-02-30.png)
+  
+  ![text](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-02-30.png)
 - юзер можно зарегистрироваться или авторизоваться
- ![](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-09-26.png)
- ![](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-07-53.png)
+  
+ ![text](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-09-26.png)
+ 
+ ![text](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-07-53.png)
 - валидация просиходит на сервере, используется библиотека Valitron
 - юзер может и не регистрироваться, но тогда результаты его тестирования не сохраняются и он не участвует в соревновании
 - успешно авторизованный юзер во вкладке меню может изменить свой аватар, учетные данные и посмотреть пройденные тесты
- ![](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-05-27.png)
+
+ ![text](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-05-27.png)
 - юзер выбирая тест начинает его решать, выбирая 1 из 4 из вариантов ответов
- ![](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-03-43.png)
+  
+ ![text](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-03-43.png)
 - юезр в любой момент может нажать кнопку "Узнать результаты", тест заканчивается и ответы юзера сравниваются с правильными, а затем выдается результат
- ![](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-04-18.png)
+  
+ ![text](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-21_15-04-18.png)
 - ответы юзера записываются в бд, 1 правильный ответ = 1 балл
 - нажав на кнопку "Таблица лидеров" юзер может посмотреть какое место в общем рейтинге
- ![](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-24_12-42-13.png)
+
+![text](https://cloud.mail.ru/public/GZwE/HVthBjuSr/2023-07-24_12-42-13.png)
